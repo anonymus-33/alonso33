@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Fernando Alonso ganará la 33?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<h1>¿Fernando Alonso ganará la 33?</h1>
+
+<div class="button-container">
+    <button id="yesButton">Sí</button>
+    <button id="noButton">No</button>
+</div>
+
+<p id="response" style="margin-top: 20px; font-size: 20px;"></p>
+
+<script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const responseText = document.getElementById('response');
+
+    // Función para cuando se hace clic en "No"
+    noButton.addEventListener('click', function() {
+        responseText.textContent = "Tal vez no este año...";
+    });
+
+    // Función para mover el botón "Sí" a una posición aleatoria
+    yesButton.addEventListener('mouseenter', function() {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const randomX = Math.floor(Math.random() * (windowWidth - yesButton.offsetWidth));
+        const randomY = Math.floor(Math.random() * (windowHeight - yesButton.offsetHeight));
+        
+        yesButton.style.position = 'absolute';
+        yesButton.style.left = randomX + 'px';
+        yesButton.style.top = randomY + 'px';
+    });
+</script>
+
+</body>
+</html>
